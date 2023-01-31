@@ -47,8 +47,14 @@ cli: gox cli-linux cli-darwin cli-windows
 cli-linux: gox
 	GO111MODULE=on CGO_ENABLED=0 gox -osarch=linux/amd64 -output=$(bin_linux) .
 
+cli-linux-arm64: gox
+	GO111MODULE=on CGO_ENABLED=0 gox -osarch=linux/arm64 -output=$(bin_linux) .
+
 cli-darwin: gox
 	GO111MODULE=on CGO_ENABLED=0 gox -osarch=darwin/amd64 -output=$(bin_darwin) .
+
+cli-darwin-arm64: gox
+	GO111MODULE=on CGO_ENABLED=0 gox -osarch=darwin/arm64 -output=$(bin_darwin) .
 
 cli-windows: gox
 	GO111MODULE=on CGO_ENABLED=0 gox -osarch=windows/amd64 -output=$(bin_windows) .
